@@ -104,18 +104,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                   </div>
                   <div class="col-md-1">
-                    <div class="card card-secondary">
-                      <div class="card-header">
-                        <h3 class="text-center">Tentang Kami</h3>
-                      </div>
-                      <div>
-                        <div class="card-body">
-                          <p class="text-center">
-                            Selamat datang di Skayesa Hotel, kami menyediakan kamar yang membuat anda nyaman untuk menginap, liburan atau yang lainnya
-                          </p>
-                        </div>
-                      </div>
+                    <div class="form-group">
+                      <br>
+                      <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="text-center">Tentang Kami</h3>
+                </div>
+                <div>
+                  <div class="card-body">
+                    <p class="text-center">
+                      Selamat datang di Skayesa Hotel, kami menyediakan kamar yang membuat anda nyaman untuk menginap, liburan atau yang lainnya
+                    </p>
                   </div>
                 </div>
               </div>
