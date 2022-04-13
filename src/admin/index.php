@@ -27,7 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Hotel Skayesa</h1>
+            <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -50,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>Data Kamar</p>
                       </div>
                       <div class="icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-home"></i>
                       </div>
                       <a href="#" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
@@ -65,7 +65,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>Fasilitas Kamar</p>
                       </div>
                       <div class="icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-list-alt"></i>
                       </div>
                       <a href="#" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>Gallery</p>
                       </div>
                       <div class="icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-image"></i>
                       </div>
                       <a href="#" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>New Orders</p>
                       </div>
                       <div class="icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-user"></i>
                       </div>
                       <a href="#" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
@@ -130,6 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="./assets/dist/js/adminlte.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="./assets/dist/js/demo.js"></script>
 </body>
