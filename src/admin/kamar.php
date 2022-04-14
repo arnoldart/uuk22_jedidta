@@ -67,20 +67,20 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form>
+        <form method="POST" action="./utils/tambah_kamar.php" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="form-group">
               <label>No. Kamar</label>
-              <input type="text" class="form-control" placeholder="Nomor Kamar">
+              <input type="text" class="form-control" name="no_kamar" placeholder="Nomor Kamar">
             </div>
             <div class="form-group">
               <label>Foto Kamar</label>
-              <input type="file" class="form-control">
+              <input type="file" class="form-control" name="foto">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
         </form>
       </div>

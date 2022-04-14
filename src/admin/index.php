@@ -52,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="icon">
                         <i class="fas fa-home"></i>
                       </div>
-                      <a href="#" class="small-box-footer">
+                      <a href="./kamar.php" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
                       </a>
                     </div>
@@ -67,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="icon">
                         <i class="fas fa-list-alt"></i>
                       </div>
-                      <a href="#" class="small-box-footer">
+                      <a href="./fasilitas.php" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
                       </a>
                     </div>
@@ -82,7 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="icon">
                         <i class="fas fa-image"></i>
                       </div>
-                      <a href="#" class="small-box-footer">
+                      <a href="./galeri.php" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
                       </a>
                     </div>
@@ -97,7 +97,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="icon">
                         <i class="fas fa-user"></i>
                       </div>
-                      <a href="#" class="small-box-footer">
+                      <a href="./user.php" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
                       </a>
                     </div>

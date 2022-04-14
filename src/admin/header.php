@@ -29,16 +29,16 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="home.php" class="nav-link">Dashboard</a>
+            <a href="./index.php" class="nav-link">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a href="kamar.php" class="nav-link">Kamar</a>
+            <a href="./kamar.php" class="nav-link">Kamar</a>
           </li>
           <li class="nav-item">
-            <a href="fasilitas.php" class="nav-link">Fasilitas Kamar</a>
+            <a href="./fasilitas.php" class="nav-link">Fasilitas Kamar</a>
           </li>
           <li class="nav-item">
-            <a href="galeri.php" class="nav-link">Galeri</a>
+            <a href="./galeri.php" class="nav-link">Galeri</a>
           </li>
         </ul>
       </div>
