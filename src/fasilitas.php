@@ -95,24 +95,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <div class="col-md-4">
                             <div class="card card-outline">
                               <div class="card-body">
-                                <img src="./assets/img/hotel-room1.jpg" alt="fasilitas" class="d-block w-100">
-                                <p>Berbagai Tipe Kamar</p>
+                                <img src="./assets/img/gym-room.jpg" alt="fasilitas" class="d-block w-100">
+                                <p>Ruangan GYM</p>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="card card-outline">
                               <div class="card-body">
-                                <img src="./assets/img/hotel-room1.jpg" alt="fasilitas" class="d-block w-100">
-                                <p>Berbagai Tipe Kamar</p>
+                                <img src="./assets/img/swimming-pool.jpg" alt="fasilitas" class="d-block w-100">
+                                <p>Kolam Renang</p>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="card card-outline">
                               <div class="card-body">
-                                <img src="./assets/img/hotel-room1.jpg" alt="fasilitas" class="d-block w-100">
-                                <p>Berbagai Tipe Kamar</p>
+                                <img src="./assets/img/golf.jpg" alt="fasilitas" class="d-block w-100">
+                                <p>Lapangan Golf</p>
                               </div>
                             </div>
                           </div>
