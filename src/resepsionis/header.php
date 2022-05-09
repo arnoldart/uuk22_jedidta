@@ -1,6 +1,11 @@
 <?
 
-include '../config/conn.php'
+include '../config/conn.php';
+
+session_start();
+if(!isset($_SESSION['nama'])){
+  header("location:../index.php");
+}
 
 ?>
 
@@ -38,16 +43,7 @@ include '../config/conn.php'
             <a href="./index.php" class="nav-link">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a href="./kamar.php" class="nav-link">Kamar</a>
-          </li>
-          <li class="nav-item">
-            <a href="./fasilitas.php" class="nav-link">Fasilitas Kamar</a>
-          </li>
-          <li class="nav-item">
-            <a href="./galeri.php" class="nav-link">Galeri</a>
-          </li>
-          <li class="nav-item">
-            <a href="./user.php" class="nav-link">Pengguna</a>
+            <a href="../index.php" class="nav-link">Logout</a>
           </li>
         </ul>
       </div>

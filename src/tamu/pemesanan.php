@@ -131,7 +131,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="form-group">
                               <label>ID Tamu</label>
                               <select name="id_tamu" class="form-control">
-                                <!-- <option value="">---Pilih Tipe---</option> -->
                                 <?php
                                   $nama = $_SESSION['username'];
                                   $data = mysqli_query($conn, "SELECT * FROM tb_tamu where tb_tamu.username = '$nama'");

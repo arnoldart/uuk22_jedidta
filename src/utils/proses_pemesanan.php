@@ -8,7 +8,7 @@ $jumlah = $_POST['jumlah'];
 $id_tamu = $_POST['id_tamu'];
 $id_kamar = $_POST['id_kamar'];
 
-$Query = "INSERT INTO transaksi (tgl_check_in, tgl_check_out, id_tamu, id_kamar, jumlah, status) VALUES ('$tgl_in', '$tgl_out', '$jumlah', '$id_tamu', '$id_kamar', '1')";
+$Query = "INSERT INTO transaksi (tgl_check_in, tgl_check_out, id_tamu, id_kamar, jumlah, status) VALUES ('$tgl_in', '$tgl_out', '$id_tamu', '$id_kamar', '$jumlah', '1')";
 $Result = mysqli_query($conn, $Query);
 
 if(!$Result) {

@@ -17,7 +17,7 @@ if (!$result) {
 } else {
     echo "<script>
             alert('Data Berhasil Disimpan');
-            document.location.href = '../pemesanan.php';
+            document.location.href = '../index.php';
           </script>";
 }
 

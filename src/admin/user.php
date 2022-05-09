@@ -21,62 +21,60 @@
     <!-- Main content -->
     <div class="content">
       <div class="container">
-           <div class="col-md-12">
-            <div class="card card-outline card-info">
-              <div class="card-header">
-                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">+ Tambah</button>
-              </div>
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>ID Pengguna</th>
-                      <th>Nama</th>
-                      <th>Username</th>
-                      <th>Password</th>
-                      <th>Level</th>
-                      <th>No .HP</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    
-                    $query = "SELECT * FROM tb_pengguna ORDER BY id_pengguna ASC";
-                    $result = mysqli_query($conn, $query);
-                    if(!$result) {
-                      die("Query error : ".mysqli_errno($conn)."-".mysqli_error($conn));
-                    }
-                    $no = 1;
-                    while($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <tr>
-                      <td><?= "$no"; ?></td>
-                      <td><?= $row['id_pengguna']; ?></td>
-                      <td><?= $row['nama_pengguna']; ?></td>
-                      <td><?= $row['username']; ?></td>
-                      <td><?= $row['password']; ?></td>
-                      <td><?= $row['level']; ?></td>
-                      <td><?= $row['no_hp']; ?></td>
-                      <td>
-                        <a href=<?= "./edit_user.php?id_pengguna=".$row['id_pengguna']; ?> class="btn btn-outline-primary btn-circle">
-                          <i class="fa fa-edit"></i>
-                        </a>
-                        <a href=<?= "../utils/hapus_user.php?id_pengguna=".$row['id_pengguna']; ?> class="btn btn-outline-danger btn-circle" onclick="return confirm('anda yakin untuk menghapus data ini?')">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <?php $no++;}?>
-                  </tbody>
-                </table>
-              </div>
+        <div class="col-md-12">
+          <div class="card card-outline card-info">
+            <div class="card-header">
+              <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">+ Tambah</button>
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>ID Pengguna</th>
+                    <th>Nama</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Level</th>
+                    <th>No .HP</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  
+                  $query = "SELECT * FROM tb_pengguna ORDER BY id_pengguna ASC";
+                  $result = mysqli_query($conn, $query);
+                  if(!$result) {
+                    die("Query error : ".mysqli_errno($conn)."-".mysqli_error($conn));
+                  }
+                  $no = 1;
+                  while($row = mysqli_fetch_assoc($result)) {
+                  ?>
+                  <tr>
+                    <td><?= "$no"; ?></td>
+                    <td><?= $row['id_pengguna']; ?></td>
+                    <td><?= $row['nama_pengguna']; ?></td>
+                    <td><?= $row['username']; ?></td>
+                    <td><?= $row['password']; ?></td>
+                    <td><?= $row['level']; ?></td>
+                    <td><?= $row['no_hp']; ?></td>
+                    <td>
+                      <a href=<?= "./edit_user.php?id_pengguna=".$row['id_pengguna']; ?> class="btn btn-outline-primary btn-circle">
+                        <i class="fa fa-edit"></i>
+                      </a>
+                      <a href=<?= "../utils/hapus_user.php?id_pengguna=".$row['id_pengguna']; ?> class="btn btn-outline-danger btn-circle" onclick="return confirm('anda yakin untuk menghapus data ini?')">
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <?php $no++;}?>
+                </tbody>
+              </table>
             </div>
           </div>
-
         </div>
-        </div>
+      </div>
       </div>
     </div>
   </div>

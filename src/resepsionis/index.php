@@ -39,27 +39,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
   <div class="content">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card card-outline card-info">
-            <table>
+      <div class="col-md-12">
+        <div class="card card-outline card-info">
+          <div class="card-body">
+            <table class="table table-bordered">
               <thead>
-                <th>#</th>
-                <th>ID Pesanan</th>
-                <th>Tanggal Cek In</th>
-                <th>Tanggal Cek Out</th>
-                <th>ID Tamu</th>
-                <th>ID Kamar</th>
-                <th>Jumlah</th>
-                <th>Status</th>
+                <tr>
+                  <th>#</th>
+                  <th>ID Pesanan</th>
+                  <th>Tanggal Cek In</th>
+                  <th>Tanggal Cek Out</th>
+                  <th>ID Tamu</th>
+                  <th>ID Kamar</th>
+                  <th>Jumlah</th>
+                  <th>Status</th>
+                </tr>
               </thead>
               <tbody>
                 <?php
                   $no = 1;
-                  $query = "SELECT * FROM transaksi ORDER BY id ASC";
+                  $query = "SELECT * FROM transaksi ORDER BY id_pesanan ASC";
                   $result = mysqli_query($conn, $query);
                   if(!$result) {
                     die("Query Error : ".mysqli_errno($conn).
@@ -69,13 +70,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 ?>
                 <tr>
                   <td><?= $no;?></td>
-                  <td><?= $row['id']?></td>
+                  <td><?= $row['id_pesanan']?></td>
                   <td><?= $row['tgl_check_in']?></td>
                   <td><?= $row['tgl_check_out']?></td>
                   <td><?= $row['id_tamu']?></td>
                   <td><?= $row['id_kamar']?></td>
                   <td><?= $row['jumlah']?></td>
-                  <td><?= $row['status']?>
+                  <td>
                   <?php if($row['status'] == 1) {?>
                     <span class="badge bg-warning">
                       Belum di Konfirmasi
@@ -87,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <?php }?>
                   </td>
                   <td>
-                    <form action="./utils/konfirmasi.php" method="post">
+                    <form action="../utils/konfirmasi.php" method="post">
                       <input type="hidden" name="id_pesanan" value="<?= $row['id_pesanan'];?>">
                       <input type="hidden" name="status" value="2">
                       <button class="btn btn-primary">Konfirmasi</button>
@@ -102,6 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
     </div>
   </div>
+  
 </div>
 
 <?php require './footer.php'?>

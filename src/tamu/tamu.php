@@ -25,7 +25,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Halaman Tamu - Anda login Sebagai <?= $_SESSION['nama']; ?></h1>
+            <h1 class="m-0">Halaman Tamu - Anda login Sebagai <?= $_SESSION['username']; ?></h1>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -66,7 +66,7 @@
                     while($row = mysqli_fetch_assoc($result)) {
                   ?>
                   <tr>
-                    <td><?= $row['id']; ?></td>
+                    <td><?= $row['id_pesanan']; ?></td>
                     <td><?= $row['tgl_check_in']; ?></td>
                     <td><?= $row['tgl_check_out']; ?></td>
                     <td><?= $row['id_tamu']; ?></td>
