@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php 
+  include 'header.php';
+  include '../config/conn.php'
+?>
 
 <div class="wraper">
   <!-- Content Wrapper. Contains page content -->
@@ -21,33 +24,50 @@
            <div class="col-md-12">
             <div class="card card-outline card-info">
               <div class="card-header">
-                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">Tambah</button>
+                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">+ Tambah</button>
               </div>
               <div class="card-body">
-                  <table class="table table-bordered">
+                <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>No Kamar</th>
-                      <th>Fasilitas</th>
+                      <th>ID Fasilitas</th>
+                      <th>Nama Fasilitas</th>
+                      <th>Gambar</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    
+                    $query = "SELECT * FROM tb_fasilitas_umum ORDER BY id ASC";
+                    $result = mysqli_query($conn, $query);
+                    if(!$result) {
+                      die("Query error : ".mysqli_errno($conn)."-".mysqli_error($conn));
+                    }
+                    $no = 1;
+                    while($row = mysqli_fetch_assoc($result)) {
+                    ?>
                     <tr>
-                      <td>1.</td>
-                      <td>No. 1</td>
-                      <td>TV, FULL AC, Bed King Size, kulkas</td>
+                      <td><?= "$no"; ?></td>
+                      <td><?= $row['id']; ?></td>
+                      <td><?= $row['nama_fasilitas']; ?></td>
                       <td>
-                        <a href="" class="btn btn btn-warning">Edit</a>
-                        <a href="" class="btn btn btn-danger">Hapus</a>
+                        <img src=<?= "../gambar/".$row['gambar'];?> alt="gambar kamar" width="200">
+                      </td>
+                      <td>
+                        <a href=<?= "./edit_fasilitas.php?id_fasilitas_umum=".$row['id']; ?> class="btn btn-outline-primary btn-circle">
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href=<?= "../utils/hapus_fasilitas.php?id_fasilitas_umum=".$row['id']; ?> class="btn btn-outline-danger btn-circle" onclick="return confirm('anda yakin untuk menghapus data ini?')">
+                          <i class="fa fa-trash"></i>
+                        </a>
                       </td>
                     </tr>
+                    <?php $no++;}?>
                   </tbody>
                 </table>
-         
               </div>
-
             </div>
           </div>
 
@@ -60,32 +80,29 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Tambah Data Fasilitas</h4>
+          <h4 class="modal-title">Tambah Data Kamar</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form>
+        <form method="POST" action="../utils/tambah_fasilitas.php" enctype="multipart/form-data">
           <div class="modal-body">
+            <!-- <div class="form-group">
+              <label>ID Fasilitas Umum</label>
+              <input type="text" class="form-control" name="id_fasilitas_umum" placeholder="ID Fasilitas Umum">
+            </div> -->
             <div class="form-group">
-              <label>No. Kamar</label>
-              <select name="kamar" class="form-control">
-                <option value="">---Pilih Opsi---</option>
-                <option value="1">Kamar 1</option>
-                <option value="2">Kamar 2</option>
-                <option value="3">Kamar 3</option>
-                <option value="4">Kamar 4</option>
-                <option value="5">Kamar 5</option>
-              </select>
+              <label>Nama Fasilitas</label>
+              <input type="text" class="form-control" name="nama_fasilitas" placeholder="Nama Fasilitas Umum">
             </div>
             <div class="form-group">
-              <label>Fasilitas kamar</label>
-              <textarea class="form-control" rows="3"></textarea>
+              <label>Foto Fasilitas Umum</label>
+              <input type="file" class="form-control" name="foto">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
         </form>
       </div>

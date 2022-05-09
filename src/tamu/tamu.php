@@ -1,6 +1,20 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UUK 2022 Jedidta | Aplikasi Pesan Hotel</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition layout-top-nav">
+
 <?php 
-  include 'header.php';
-  include '../config/conn.php'
+  include './header.php';
 ?>
 
 <div class="wraper">
@@ -11,7 +25,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Kamar</h1>
+            <h1 class="m-0">Halaman Tamu - Anda login Sebagai <?= $_SESSION['nama']; ?></h1>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -21,63 +35,56 @@
     <!-- Main content -->
     <div class="content">
       <div class="container">
-           <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
             <div class="card card-outline card-info">
-              <div class="card-header">
-                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">Tambah</button>
-              </div>
               <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Id. Kamar</th>
-                      <th>Tipe</th>
-                      <th>Jumlah</th>
-                      <th>Harga</th>
-                      <th>Foto</th>
-                      <th>Keterangan</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    
-                    $query = "SELECT * FROM tb_kamar ORDER BY id_kamar ASC";
+                <a href="pemesanan.php" class="btn btn-primary">+ Pesan Kamar</a>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <th>ID Pesanan</th>
+                  <th>Tgl Cek In</th>
+                  <th>Tgl Cek Out</th>
+                  <th>ID Tamu</th>
+                  <th>ID Kamar</th>
+                  <th>Jumlah</th>
+                  <th>Aksi</th>
+                </thead>
+                <tbody>
+                  <?php
+                    require "../config/conn.php";
+
+                    $nama = $_SESSION['username'];
+                    $query="SELECT * FROM transaksi, tb_tamu WHERE transaksi.id_tamu = tb_tamu.id AND tb_tamu.username = '$nama'";
                     $result = mysqli_query($conn, $query);
+                    
                     if(!$result) {
                       die("Query error : ".mysqli_errno($conn)."-".mysqli_error($conn));
                     }
                     $no = 1;
                     while($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <tr>
-                      <td><?= "$no"; ?></td>
-                      <td><?= $row['id_kamar']; ?></td>
-                      <td><?= $row['tipe']; ?></td>
-                      <td><?= $row['jumlah']; ?></td>
-                      <td><?= $row['harga']; ?></td>
-                      <td>
-                        <img src=<?= "../gambar/".$row['gambar'];?> alt="gambar kamar" width="200">
-                      </td>
-                      <td><?= $row['keterangan']; ?></td>
-                      <td>
-                        <a href=<?= "./edit_kamar.php?id_kamar=".$row['id_kamar']; ?> class="btn btn-outline-primary btn-circle">
-                          <i class="fa fa-edit"></i>
-                        </a>
-                        <a href=<?= "../utils/hapus_kamar.php?id_kamar=".$row['id_kamar']; ?> class="btn btn-outline-danger btn-circle" onclick="return confirm('anda yakin untuk menghapus data ini?')">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <?php $no++;}?>
-                  </tbody>
-                </table>
-              </div>
+                  ?>
+                  <tr>
+                    <td><?= $row['id']; ?></td>
+                    <td><?= $row['tgl_check_in']; ?></td>
+                    <td><?= $row['tgl_check_out']; ?></td>
+                    <td><?= $row['id_tamu']; ?></td>
+                    <td><?= $row['id_kamar']; ?></td>
+                    <td><?= $row['jumlah']; ?></td>
+                    <td>
+                      <a href="cetak_pesanan.php?id_pesanan=<?= $row['id']; ?>" class="btn btn-outline-primary btn-circle">
+                        <i class="fa fa-print"></i>  
+                      </a>
+                    </td>
+                  </tr>
+                  <?php
+                    }
+                  ?>
+                </tbody>
+              </table>
             </div>
           </div>
-
-        </div>
         </div>
       </div>
     </div>
@@ -124,6 +131,11 @@
               <label>Keterangan</label>
               <input type="text" class="form-control" name="keterangan" placeholder="Keterangan">
             </div>
+
+            <!-- <div class="form-group">
+              <label>Foto Kamar</label>
+              <input type="file" class="form-control" name="foto">
+            </div> -->
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -134,4 +146,4 @@
     </div>
   </div>
 
-<?php include 'footer.php'; ?>
+<!-- <?php include 'footer.php'; ?> -->

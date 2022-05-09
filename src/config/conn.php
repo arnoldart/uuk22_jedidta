@@ -1,8 +1,8 @@
 <?php
 
-$host = 'db';
+$host = 'localhost';
 $user = "root";
-$pass = "MYSQL_ROOT_PASSWORD";
+$pass = "";
 $db = "db_ukk_2022";
 
 $conn = mysqli_connect($host, $user, $pass, $db);

@@ -1,3 +1,6 @@
+<?php
+include './config/conn.php'
+?>
 
 <!DOCTYPE html>
 <!--
@@ -37,7 +40,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container">
-        <div class="row">
+        <?php 
+          $query = "SELECT * FROM tb_kamar ORDER BY id_kamar ASC";
+          $result = mysqli_query($conn, $query);
+          if(!$result) {
+            die("Query error : ".mysqli_errno($conn)."-".mysqli_error($conn));
+          }
+          $no = 1;
+          while($row = mysqli_fetch_assoc($result)) {
+        ?>
           <div class="col-md-12">
             <div class="card card-outline card-info">
               <div class="card-body">
@@ -46,31 +57,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="card-body">
                       <table> 
                         <tr>
-                          <th><h4><b>Delux Room</b></h4></th>
+                          <th><h4><b><?= $row['tipe']; ?></b></h4></th>
                         </tr>
                         <tr>
                           <td>Fasilitas</td>
                         </tr>
                         <tr>
-                          <td>Kasur untuk 2 orang, meja, kursi, kamar mandi, kolam renang pribadi, wifi 10GBPS, Pemandangan luar biasa</td>
+                          <td colspan="2"><?= $row['keterangan'];?></td>
                         </tr>
-                      </table>
-                      <table>
-                        <p><h5><b>RP 350.000,00</b></h5></p>
+                        <tr>
+                          <td>Harga : </td>
+                          <td><?= $row['harga'];?></td>
+                        </tr>
                       </table>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <img src="./assets/img/hotel-room2.jpg" alt="ndak tau" class="d-block w-100">
+                      <img src="./admin/gambar/<?= $row['gambar']; ?>" alt="ndak tau" class="d-block w-100">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- /.row -->
+        <?php $no++;}?>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->

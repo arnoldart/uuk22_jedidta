@@ -1,12 +1,16 @@
 <?php
 
-include '../../config/conn.php';
+include '../config/conn.php';
 
-$no_kamar = $_POST['no_kamar'];
+$id_kamar = $_POST['id_kamar'];
+$tipe = $_POST['tipe'];
+$jumlah = $_POST['jumlah'];
+$harga = $_POST['harga'];
 $foto = $_FILES['foto']['name'];
+$keterangan = $_POST['keterangan'];
 
 if($foto !== "") {
-  $ekstensi_diperbolehkan = array('png', 'jpg');
+  $ekstensi_diperbolehkan = array('png', 'jpg', 'jpeg');
   $x = explode('.', $foto);
   $extensi = strtolower(end($x));
   $file_tmp = $_FILES['foto']['tmp_name'];
@@ -14,8 +18,9 @@ if($foto !== "") {
   $nama_gambar_baru = $angka_acak.'-'.$foto;
 
   if(in_array($extensi, $ekstensi_diperbolehkan) === true) {
-    move_uploaded_file($file_tmp, 'gambar/'.$nama_gambar_baru);
-    $query = "INSERT INTO kamar(no_kamar, foto) VALUES ('$no_kamar', '$nama_gambar_baru')";
+    move_uploaded_file($file_tmp, '../gambar/'.$nama_gambar_baru);
+    $query = "UPDATE tb_kamar SET tipe='$tipe', jumlah='$jumlah', harga='$harga', gambar='$nama_gambar_baru', keterangan='$keterangan'";
+    $query .= "WHERE id_kamar='$id_kamar'";
     $result = mysqli_query($conn, $query);
 
     if(!$result) {
@@ -24,10 +29,11 @@ if($foto !== "") {
       echo "<script>alert('Data berhasil ditambahkan.');window.location='../kamar.php';</script>";
     }
   }else {
-    echo "<script>alert('Extensi gambar harus png atau jpg.');window.locations='kamar.php';</script>";
+    echo "<script>alert('Extensi gambar harus png atau jpg.');window.location='../kamar.php';</script>";
   }
 }else {
-  $query = "INSERT INTO kamar(no_kamar, foto) VALUES ('$no_kamar, null')";
+  $query = "UPDATE tb_kamar SET tipe='$tipe', jumlah='$jumlah', harga='$harga', gambar='$nama_gambar_baru', keterangan='$keterangan'";
+  $query .= "WHERE id_kamar='$id_kamar'";
   $result = mysqli_query($conn, $query);
 
   if(!$result) {

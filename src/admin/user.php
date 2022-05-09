@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Kamar</h1>
+            <h1 class="m-0">Pengguna</h1>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -24,26 +24,26 @@
            <div class="col-md-12">
             <div class="card card-outline card-info">
               <div class="card-header">
-                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">Tambah</button>
+                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">+ Tambah</button>
               </div>
               <div class="card-body">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Id. Kamar</th>
-                      <th>Tipe</th>
-                      <th>Jumlah</th>
-                      <th>Harga</th>
-                      <th>Foto</th>
-                      <th>Keterangan</th>
+                      <th>ID Pengguna</th>
+                      <th>Nama</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Level</th>
+                      <th>No .HP</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
                     
-                    $query = "SELECT * FROM tb_kamar ORDER BY id_kamar ASC";
+                    $query = "SELECT * FROM tb_pengguna ORDER BY id_pengguna ASC";
                     $result = mysqli_query($conn, $query);
                     if(!$result) {
                       die("Query error : ".mysqli_errno($conn)."-".mysqli_error($conn));
@@ -53,19 +53,17 @@
                     ?>
                     <tr>
                       <td><?= "$no"; ?></td>
-                      <td><?= $row['id_kamar']; ?></td>
-                      <td><?= $row['tipe']; ?></td>
-                      <td><?= $row['jumlah']; ?></td>
-                      <td><?= $row['harga']; ?></td>
+                      <td><?= $row['id_pengguna']; ?></td>
+                      <td><?= $row['nama_pengguna']; ?></td>
+                      <td><?= $row['username']; ?></td>
+                      <td><?= $row['password']; ?></td>
+                      <td><?= $row['level']; ?></td>
+                      <td><?= $row['no_hp']; ?></td>
                       <td>
-                        <img src=<?= "../gambar/".$row['gambar'];?> alt="gambar kamar" width="200">
-                      </td>
-                      <td><?= $row['keterangan']; ?></td>
-                      <td>
-                        <a href=<?= "./edit_kamar.php?id_kamar=".$row['id_kamar']; ?> class="btn btn-outline-primary btn-circle">
+                        <a href=<?= "./edit_user.php?id_pengguna=".$row['id_pengguna']; ?> class="btn btn-outline-primary btn-circle">
                           <i class="fa fa-edit"></i>
                         </a>
-                        <a href=<?= "../utils/hapus_kamar.php?id_kamar=".$row['id_kamar']; ?> class="btn btn-outline-danger btn-circle" onclick="return confirm('anda yakin untuk menghapus data ini?')">
+                        <a href=<?= "../utils/hapus_user.php?id_pengguna=".$row['id_pengguna']; ?> class="btn btn-outline-danger btn-circle" onclick="return confirm('anda yakin untuk menghapus data ini?')">
                           <i class="fa fa-trash"></i>
                         </a>
                       </td>
@@ -86,43 +84,41 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Tambah Data Kamar</h4>
+          <h4 class="modal-title">Tambah Data Pengguna</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" action="../utils/tambah_kamar.php" enctype="multipart/form-data">
+        <form method="POST" action="../utils/tambah_user.php" enctype="multipart/form-data">
           <div class="modal-body">
-            <div class="form-group">
-              <label>No. Kamar</label>
+            <!-- <div class="form-group">
+              <label>ID Pengguna</label>
               <input type="text" class="form-control" name="no_kamar" placeholder="Nomor Kamar">
+            </div> -->
+            <div class="form-group">
+              <label>Nama Pengguna</label>
+              <input type="text" class="form-control" name="nama_pengguna" placeholder="Nama Pengguna">
             </div>
             <div class="form-group">
-              <label>Tipe</label>
-              <select name="tipe" class="form-control">
+              <label>Username</label>
+              <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="text" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label>Level</label>
+              <select name="level" class="form-control">
                 <option value="">---Pilih Tipe---</option>
-                <option value="Standart">Standart</option>
-                <option value="Deluxe">Deluxe</option>
-                <option value="Superior">Superior</option>
-                <option value="Suit">Suit</option>
-                <option value="Presidensial">Presidensial</option>
+                <option value="tamu">Tamu</option>
+                <option value="resepsionis">Resepsionis</option>
+                <option value="admin">Admin</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Jumlah</label>
-              <input type="text" class="form-control" name="jumlah" placeholder="Jumlah">
-            </div>
-            <div class="form-group">
-              <label>Harga</label>
-              <input type="text" class="form-control" name="harga" placeholder="Harga">
-            </div>
-            <div class="form-group">
-              <label>Foto Kamar</label>
-              <input type="file" class="form-control" name="foto">
-            </div>
-            <div class="form-group">
-              <label>Keterangan</label>
-              <input type="text" class="form-control" name="keterangan" placeholder="Keterangan">
+              <label>No. HP</label>
+              <input type="text" class="form-control" name="no_hp" placeholder="No. HP">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
