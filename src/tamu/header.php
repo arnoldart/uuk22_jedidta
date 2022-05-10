@@ -41,7 +41,7 @@ if(!isset($_SESSION['username'])){
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="pemesanan.php" class="nav-link">Home</a>
+          <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
           <a href="tamu.php" class="nav-link">Pesanan</a>

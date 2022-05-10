@@ -1,5 +1,11 @@
+  <?php 
+    require './header.php';
 
-  <?php require './header.php'?>
+    session_start();
+    unset($_SESSION['username']);
+    unset($_SESSION['user']);
+
+  ?>
 
   <div class="content-wrapper">
     <div class="col-md-19">

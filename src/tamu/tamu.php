@@ -38,16 +38,14 @@
         <div class="col-md-12">
           <div class="card card-outline card-info">
             <div class="card-body">
-              <a href="pemesanan.php" class="btn btn-primary mb-4">+ Pesan Kamar</a>
+              <a href="./index.php" class="btn btn-primary mb-4">+ Pesan Kamar</a>
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>ID Pesanan</th>
+                    <th>Tipe Kamar</th>
+                    <th>Jumlah</th>
                     <th>Tgl Cek In</th>
                     <th>Tgl Cek Out</th>
-                    <th>ID Tamu</th>
-                    <th>ID Kamar</th>
-                    <th>Jumlah</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -56,7 +54,9 @@
                     require "../config/conn.php";
 
                     $nama = $_SESSION['username'];
-                    $query="SELECT * FROM transaksi, tb_tamu WHERE transaksi.id_tamu = tb_tamu.id AND tb_tamu.username = '$nama'";
+                    $query="SELECT * FROM transaksi
+                            INNER JOIN tb_kamar ON transaksi.id_kamar = tb_kamar.id_kamar
+                            INNER JOIN tb_tamu ON transaksi.id_tamu = tb_tamu.id WHERE tb_tamu.username = 'user'";
                     $result = mysqli_query($conn, $query);
                     
                     if(!$result) {
@@ -66,12 +66,10 @@
                     while($row = mysqli_fetch_assoc($result)) {
                   ?>
                   <tr>
-                    <td><?= $row['id_pesanan']; ?></td>
+                    <td><?= $row['tipe']; ?></td>
+                    <td><?= $row['jumlah']; ?></td>
                     <td><?= $row['tgl_check_in']; ?></td>
                     <td><?= $row['tgl_check_out']; ?></td>
-                    <td><?= $row['id_tamu']; ?></td>
-                    <td><?= $row['id_kamar']; ?></td>
-                    <td><?= $row['jumlah']; ?></td>
                     <td>
                       <a href="cetak_pesanan.php?id_pesanan=<?= $row['id']; ?>" class="btn btn-outline-primary btn-circle">
                         <i class="fa fa-print"></i>  

@@ -1,16 +1,14 @@
 <!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
+  <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
       Anything you want
     </div>
-    <!-- Default to the left -->
     <strong>Copyright &copy; UKK 2022 <a href="">Jedidta Adoni Saputra</a>|</strong> 
   </footer>
 </div>

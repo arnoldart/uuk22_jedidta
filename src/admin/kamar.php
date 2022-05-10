@@ -1,6 +1,5 @@
 <?php 
   include 'header.php';
-  include '../config/conn.php'
 ?>
 
 <div class="wraper">
@@ -131,5 +130,5 @@
       </div>
     </div>
   </div>
-
+</div>
 <?php include 'footer.php'; ?>

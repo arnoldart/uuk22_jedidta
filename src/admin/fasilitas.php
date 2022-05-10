@@ -1,24 +1,17 @@
-<?php 
-  include 'header.php';
-  include '../config/conn.php'
-?>
+<?php include './header.php'?>
 
 <div class="wraper">
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Fasilitas</h1>
           </div>
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+        </div>
+      </div>
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
     <div class="content">
       <div class="container">
            <div class="col-md-12">
@@ -85,10 +78,6 @@
         </div>
         <form method="POST" action="../utils/tambah_fasilitas.php" enctype="multipart/form-data">
           <div class="modal-body">
-            <!-- <div class="form-group">
-              <label>ID Fasilitas Umum</label>
-              <input type="text" class="form-control" name="id_fasilitas_umum" placeholder="ID Fasilitas Umum">
-            </div> -->
             <div class="form-group">
               <label>Nama Fasilitas</label>
               <input type="text" class="form-control" name="nama_fasilitas" placeholder="Nama Fasilitas Umum">
@@ -106,5 +95,5 @@
       </div>
     </div>
   </div>
-
+</div>
 <?php include 'footer.php'; ?>

@@ -12,7 +12,7 @@ if($row > 0){
   session_start();
   $_SESSION['username'] = $user;
   $_SESSION['id'] = $data['id'];
-  header("location:../tamu/pemesanan.php");
+  header("location:../tamu/index.php");
 }else{
   ?>
   <script>

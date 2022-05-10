@@ -1,6 +1,5 @@
 <?php 
   include 'header.php';
-  include '../config/conn.php'
 ?>
 
 <div class="wraper">

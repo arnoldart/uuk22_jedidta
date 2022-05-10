@@ -1,14 +1,13 @@
-<?
+<?php
 
-include '../config/conn.php';
+  require "../config/conn.php";
 
-session_start();
-if(!isset($_SESSION['nama'])){
-  header("location:../index.php");
-}
+  session_start();
+  if(!isset($_SESSION['user'])){
+    header("location:../index.php");
+  }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +24,6 @@ if(!isset($_SESSION['nama'])){
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
-
-  <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
       <img src="../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -61,7 +58,3 @@ if(!isset($_SESSION['nama'])){
       </div>
     </div>
   </nav>
-  <!-- /.navbar -->
-</div>
-</body>
-</html>
