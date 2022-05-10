@@ -35,21 +35,21 @@
     <!-- Main content -->
     <div class="content">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card card-outline card-info">
-              <div class="card-body">
-                <a href="pemesanan.php" class="btn btn-primary">+ Pesan Kamar</a>
-              </div>
+        <div class="col-md-12">
+          <div class="card card-outline card-info">
+            <div class="card-body">
+              <a href="pemesanan.php" class="btn btn-primary mb-4">+ Pesan Kamar</a>
               <table class="table table-bordered">
                 <thead>
-                  <th>ID Pesanan</th>
-                  <th>Tgl Cek In</th>
-                  <th>Tgl Cek Out</th>
-                  <th>ID Tamu</th>
-                  <th>ID Kamar</th>
-                  <th>Jumlah</th>
-                  <th>Aksi</th>
+                  <tr>
+                    <th>ID Pesanan</th>
+                    <th>Tgl Cek In</th>
+                    <th>Tgl Cek Out</th>
+                    <th>ID Tamu</th>
+                    <th>ID Kamar</th>
+                    <th>Jumlah</th>
+                    <th>Aksi</th>
+                  </tr>
                 </thead>
                 <tbody>
                   <?php

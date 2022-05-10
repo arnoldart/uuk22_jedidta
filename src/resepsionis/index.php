@@ -48,19 +48,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>ID Pesanan</th>
+                  <th>Nama Tamu</th>
+                  <th>Tipe Kamar</th>
+                  <th>Jumlah</th>
                   <th>Tanggal Cek In</th>
                   <th>Tanggal Cek Out</th>
-                  <th>ID Tamu</th>
-                  <th>ID Kamar</th>
-                  <th>Jumlah</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
                   $no = 1;
-                  $query = "SELECT * FROM transaksi ORDER BY id_pesanan ASC";
+                  $query = "SELECT * FROM transaksi 
+                            INNER JOIN tb_tamu ON transaksi.id_tamu = tb_tamu.id 
+                            INNER JOIN tb_kamar ON transaksi.id_kamar = tb_kamar.id_kamar";
                   $result = mysqli_query($conn, $query);
                   if(!$result) {
                     die("Query Error : ".mysqli_errno($conn).
@@ -70,12 +72,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 ?>
                 <tr>
                   <td><?= $no;?></td>
-                  <td><?= $row['id_pesanan']?></td>
+                  <td><?= $row['nama_tamu']?></td>
+                  <td><?= $row['tipe']?></td>
+                  <td><?= $row['jumlah']?></td>
                   <td><?= $row['tgl_check_in']?></td>
                   <td><?= $row['tgl_check_out']?></td>
-                  <td><?= $row['id_tamu']?></td>
-                  <td><?= $row['id_kamar']?></td>
-                  <td><?= $row['jumlah']?></td>
                   <td>
                   <?php if($row['status'] == 1) {?>
                     <span class="badge bg-warning">

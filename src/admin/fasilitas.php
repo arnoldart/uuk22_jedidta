@@ -31,7 +31,6 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>ID Fasilitas</th>
                       <th>Nama Fasilitas</th>
                       <th>Gambar</th>
                       <th>Aksi</th>
@@ -50,7 +49,6 @@
                     ?>
                     <tr>
                       <td><?= "$no"; ?></td>
-                      <td><?= $row['id']; ?></td>
                       <td><?= $row['nama_fasilitas']; ?></td>
                       <td>
                         <img src=<?= "../gambar/".$row['gambar'];?> alt="gambar kamar" width="200">

@@ -36,16 +36,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="index.php" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
             <a href="kamar.php" class="nav-link">Kamar</a>
           </li>
           <li class="nav-item">
             <a href="fasilitas.php" class="nav-link">Fasilitas</a>
           </li>
           <li class="nav-item">
-            <a href="login_admin.php" class="nav-link">Login</a>
+            <a href="index.php" class="nav-link">Login</a>
           </li>
       </div>
     </div>

@@ -31,7 +31,6 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Id. Kamar</th>
                       <th>Tipe</th>
                       <th>Jumlah</th>
                       <th>Harga</th>
@@ -53,7 +52,6 @@
                     ?>
                     <tr>
                       <td><?= "$no"; ?></td>
-                      <td><?= $row['id_kamar']; ?></td>
                       <td><?= $row['tipe']; ?></td>
                       <td><?= $row['jumlah']; ?></td>
                       <td><?= $row['harga']; ?></td>

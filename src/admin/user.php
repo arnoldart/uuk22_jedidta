@@ -31,7 +31,6 @@
                 <thead>
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>ID Pengguna</th>
                     <th>Nama</th>
                     <th>Username</th>
                     <th>Password</th>
@@ -53,7 +52,6 @@
                   ?>
                   <tr>
                     <td><?= "$no"; ?></td>
-                    <td><?= $row['id_pengguna']; ?></td>
                     <td><?= $row['nama_pengguna']; ?></td>
                     <td><?= $row['username']; ?></td>
                     <td><?= $row['password']; ?></td>
@@ -89,10 +87,6 @@
         </div>
         <form method="POST" action="../utils/tambah_user.php" enctype="multipart/form-data">
           <div class="modal-body">
-            <!-- <div class="form-group">
-              <label>ID Pengguna</label>
-              <input type="text" class="form-control" name="no_kamar" placeholder="Nomor Kamar">
-            </div> -->
             <div class="form-group">
               <label>Nama Pengguna</label>
               <input type="text" class="form-control" name="nama_pengguna" placeholder="Nama Pengguna">

@@ -11,9 +11,9 @@ if(!$result) {
     die("Query Error : ".mysqli_errno($conn)." - ".mysqli_error($conn));
 }else {
     echo "<script>
-            alert('Data Berhasil Disimpan');
-            document.location.href = '../resepsionis/index.php';
-            </script>";
+      alert('Data Berhasil Disimpan');
+      document.location.href = '../resepsionis/index.php';
+      </script>";
 }
 
 

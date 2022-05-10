@@ -92,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="inner">
                         <h3>150</h3>
 
-                        <p>New Orders</p>
+                        <p>Pengguna</p>
                       </div>
                       <div class="icon">
                         <i class="fas fa-user"></i>
