@@ -1,26 +1,4 @@
-
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UUK 2022 Jedidta | Aplikasi Pesan Hotel</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="./assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="./assets/dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition layout-top-nav">
-<div class="wrapper">
-
-  <?php require './header.php'?>
+<?php include './header.php'?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -54,13 +32,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ol>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="./assets/img/hotel-room1.jpg" alt="First slide">
+                        <img class="d-block w-100" src="./assets/img/golf.jpg" alt="First slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="./assets/img/hotel-room2.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="./assets/img/swimming-pool.jpg" alt="Second slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="./assets/img/hotel-room3.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="./assets/img/gym-room.jpg" alt="Third slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -92,30 +70,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="card-body">
                       <div class="col-md-12">
                         <div class="row">
-                          <div class="col-md-4">
-                            <div class="card card-outline">
-                              <div class="card-body">
-                                <img src="./assets/img/gym-room.jpg" alt="fasilitas" class="d-block w-100">
-                                <p>Ruangan GYM</p>
+                          <?php
+                            $sql = "SELECT * FROM tb_fasilitas_umum";
+                            $result = mysqli_query($conn, $sql);
+                            while($row = mysqli_fetch_assoc($result)) {
+                          ?>
+                            <div class="col-md-4">
+                              <div class="card card-outline">
+                                <div class="card-body">
+                                  <img src="./gambar/<?= $row['gambar']; ?>" alt="fasilitas" class="d-block w-100">
+                                  <p><?= $row['nama_fasilitas'];  ?></p>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="card card-outline">
-                              <div class="card-body">
-                                <img src="./assets/img/swimming-pool.jpg" alt="fasilitas" class="d-block w-100">
-                                <p>Kolam Renang</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="card card-outline">
-                              <div class="card-body">
-                                <img src="./assets/img/golf.jpg" alt="fasilitas" class="d-block w-100">
-                                <p>Lapangan Golf</p>
-                              </div>
-                            </div>
-                          </div>
+                          <?php }?>
                         </div>
                       </div>
                     </div>
@@ -130,27 +98,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  
-  <!-- /.control-sidebar -->
   <?php require './footer.php'?>
-  <!-- Main Footer -->
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="./assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="./assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="./assets/dist/js/demo.js"></script>
-</body>
-</html>

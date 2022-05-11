@@ -11,7 +11,7 @@ if(isset($_GET['id_kamar'])) {
     echo "<script>alert('Data berhasil dihapus');window.location='../admin/kamar.php'</script>";
 
   }else {
-    echo "<script>alert('Data tidak berhasil dihapus');window.location='../kamar.php'</script>";
+    echo "<script>alert('Data tidak berhasil dihapus');window.location='../admin/kamar.php'</script>";
   }
 
 }

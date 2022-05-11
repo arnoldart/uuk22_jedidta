@@ -26,10 +26,10 @@ if($foto !== "") {
     if(!$result) {
       die("query gagal dijalankan: ".mysqli_errno($conn)."-".mysqli_error($conn));
     }else {
-      echo "<script>alert('Data berhasil ditambahkan.');window.location='../kamar.php';</script>";
+      echo "<script>alert('Data berhasil ditambahkan.');window.location='../admin/kamar.php';</script>";
     }
   }else {
-    echo "<script>alert('Extensi gambar harus png atau jpg.');window.location='../kamar.php';</script>";
+    echo "<script>alert('Extensi gambar harus png atau jpg.');window.location='../admin/kamar.php';</script>";
   }
 }else {
   $query = "UPDATE tb_kamar SET tipe='$tipe', jumlah='$jumlah', harga='$harga', gambar='$nama_gambar_baru', keterangan='$keterangan'";

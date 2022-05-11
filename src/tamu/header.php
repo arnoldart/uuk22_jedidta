@@ -1,8 +1,23 @@
 <?php
 
+require "../config/conn.php";
+
 session_start();
-if(!isset($_SESSION['username'])){
-  header("location:../index.php");
+if(isset($_SESSION['username'])){
+  if($_SESSION['level'] === "admin") {
+    echo "<script>
+      window.location.href = '../admin/';
+    </script>";
+  }else if($_SESSION['level'] === "resepsionis") {
+    echo "<script>
+      window.location.href = '../resepsionis/';
+    </script>";
+  }
+}else{
+  echo "<script>
+    alert('Silahkan login terlebih dahulu');
+    window.location.href = '../index.php';
+  </script>";
 }
 
 ?>
@@ -28,7 +43,7 @@ if(!isset($_SESSION['username'])){
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
   <div class="container">
-    <a href="../assets/index3.html" class="navbar-brand">
+    <a href="./index.php" class="navbar-brand">
       <img src="../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -42,6 +57,12 @@ if(!isset($_SESSION['username'])){
       <ul class="navbar-nav">
         <li class="nav-item">
           <a href="index.php" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="kamar.php" class="nav-link">Kamar</a>
+        </li>
+        <li class="nav-item">
+          <a href="fasilitas.php" class="nav-link">Fasilitas</a>
         </li>
         <li class="nav-item">
           <a href="tamu.php" class="nav-link">Pesanan</a>

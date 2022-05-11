@@ -26,7 +26,7 @@
                 <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Tambah">Tambah</button>
               </div>
               <div class="card-body">
-                <table class="table table-bordered">
+                <table id="example2" class="table table-bordered">
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>

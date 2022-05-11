@@ -12,7 +12,7 @@ if(!$result) {
 }else {
     echo "<script>
       alert('Data Berhasil Disimpan');
-      document.location.href = '../resepsionis/index.php';
+      document.location.href = '../resepsionis/pesanan.php';
       </script>";
 }
 

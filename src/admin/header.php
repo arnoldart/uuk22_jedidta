@@ -1,11 +1,24 @@
 <?php
 
-  require "../config/conn.php";
+require "../config/conn.php";
 
-  session_start();
-  if(!isset($_SESSION['username'])){
-    header("location:../index.php");
+session_start();
+if(isset($_SESSION['username'])){
+  if($_SESSION['level'] === "resepsionis") {
+    echo "<script>
+      window.location.href = '../resepsionis/';
+    </script>";
+  }else if($_SESSION['level'] === "tamu") {
+    echo "<script>
+      window.location.href = '../tamu/';
+    </script>";
   }
+}else{
+  echo "<script>
+    alert('Silahkan login terlebih dahulu');
+    window.location.href = '../index.php';
+  </script>";
+}
 
 ?>
 <!DOCTYPE html>
@@ -40,16 +53,16 @@
             <a href="./index.php" class="nav-link">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a href="./kamar.php" class="nav-link">Kamar</a>
+            <a href="./kamar.php" class="nav-link">Data Kamar</a>
           </li>
           <li class="nav-item">
-            <a href="./fasilitas.php" class="nav-link">Fasilitas Kamar</a>
+            <a href="./fasilitas.php" class="nav-link">Data Fasilitas</a>
           </li>
           <li class="nav-item">
-            <a href="./galeri.php" class="nav-link">Galeri</a>
+            <a href="./user.php" class="nav-link">Data Pengguna</a>
           </li>
           <li class="nav-item">
-            <a href="./user.php" class="nav-link">Pengguna</a>
+            <a href="./transaksi.php" class="nav-link">Data Transaksi</a>
           </li>
           <li class="nav-item">
             <a href="../index.php" class="nav-link">Logout</a>

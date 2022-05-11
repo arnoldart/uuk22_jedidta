@@ -25,58 +25,47 @@ require '../config/conn.php';
       <div class="col-md-12">
         <div class="card card-outline card-info">
           <div class="card-body">
-            <div class="row px-2 align-items-center justify-content-between">
-              <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-              <div style="margin-top: -0.8rem;">
-                <button class="btn btn-primary"  data-toggle="modal" data-target="#Pesan" type="button">Tambah +</button>
-              </div>
-            </div>
             <div class="modal fade" id="Pesan">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title">Form Pemesanan</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <!-- <form method="POST" action="../utils/tambah_kamar.php" enctype="multipart/form-data"> -->
-                          <div class="modal-body">
-                            <div class="form-group">
-                              <label>ID Tamu</label>
-                              <select name="id_tamu" class="form-control">
-                                <?php
-                                  $nama = $_SESSION['username'];
-                                  $data = mysqli_query($conn, "SELECT * FROM tb_tamu where tb_tamu.username = '$nama'");
-                                  while ($row = mysqli_fetch_array($data)) { ?>
-                                    <option value="<?= $row['id']; ?>"><?= $row['nama_tamu']; ?></option>
-                                <?php }?>
-                              </select>
-                            </div>
-                            <div class="form-group">
-                              <label>ID Kamar</label>
-                              <select name="id_kamar" class="form-control">
-                                <option value="">---Pilih Tipe---</option>
-                                <?php
-                                  $data = mysqli_query($conn, "SELECT * FROM tb_kamar");
-                                  while ($row = mysqli_fetch_array($data)) { ?>
-                                    <option value="<?= $row['id_kamar']; ?>"><?= $row['tipe']; ?></option>
-                                <?php }?>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                          </div>
-                        <!-- </form> -->
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Form Pemesanan</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label>ID Tamu</label>
+                        <select name="id_tamu" class="form-control">
+                          <?php
+                            $nama = $_SESSION['username'];
+                            $data = mysqli_query($conn, "SELECT * FROM tb_tamu where tb_tamu.username = '$nama'");
+                            while ($row = mysqli_fetch_array($data)) { ?>
+                              <option value="<?= $row['id']; ?>"><?= $row['nama_tamu']; ?></option>
+                          <?php }?>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>ID Kamar</label>
+                        <select name="id_kamar" class="form-control">
+                          <option value="">---Pilih Tipe---</option>
+                          <?php
+                            $data = mysqli_query($conn, "SELECT * FROM tb_kamar");
+                            while ($row = mysqli_fetch_array($data)) { ?>
+                              <option value="<?= $row['id_kamar']; ?>"><?= $row['tipe']; ?></option>
+                          <?php }?>
+                        </select>
                       </div>
                     </div>
-                  </div>
-            <table class="table table-bordered">
+                    <div class="modal-footer justify-content-between">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
                   <th>#</th>
@@ -85,7 +74,6 @@ require '../config/conn.php';
                   <th>Nama Tamu</th>
                   <th>Tipe Kamar</th>
                   <th>Jumlah Kamar</th>
-                  <th>Jumlah Orang</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -110,7 +98,6 @@ require '../config/conn.php';
                   <td><?= $row['nama_tamu']?></td>
                   <td><?= $row['tipe']?></td>
                   <td><?= $row['jumlah_kamar']?></td>
-                  <td><?= $row['jumlah_orang']?></td>
                   <td>
                   <?php if($row['status'] == 1) {?>
                     <span class="badge bg-warning">
@@ -136,9 +123,60 @@ require '../config/conn.php';
           </div>
         </div>
       </div>
+  
     </div>
   </div>
-  
 </div>
+
+<!-- jQuery -->
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../assets/plugins/jszip/jszip.min.js"></script>
+<script src="../assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../assets/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+
+   //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+  });
+</script>
+
+
 
 <?php require './footer.php'?>

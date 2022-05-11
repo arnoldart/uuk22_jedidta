@@ -145,10 +145,6 @@ require '../config/conn.php';
                                 <?php }?>
                               </select>
                             </div>
-                            <div class="form-group">
-                              <label>Jumlah Orang</label>
-                              <input type="text" name="jumlah_orang" class="form-control">
-                            </div>
                           </div>
                           <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

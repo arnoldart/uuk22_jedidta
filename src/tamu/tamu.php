@@ -48,7 +48,6 @@
                     <th>Nama Tamu</th>
                     <th>Tipe Kamar</th>
                     <th>Jumlah Kamar</th>
-                    <th>Jumlah Orang</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -75,11 +74,14 @@
                     <td><?= $row['nama_tamu']; ?></td>
                     <td><?= $row['tipe']; ?></td>
                     <td><?= $row['jumlah_kamar']; ?></td>
-                    <td><?= $row['jumlah_orang']; ?></td>
                     <td>
-                      <a href="cetak_pesanan.php?id_pesanan=<?= $row['id']; ?>" class="btn btn-outline-primary btn-circle">
-                        <i class="fa fa-print"></i>  
-                      </a>
+                      <?php if($row['status'] == '1') { ?>
+                        <span class="badge bg-warning">Belum di Konfirmasi</span> 
+                      <?php }else {?>
+                        <a href="./cetak_pesanan.php?id_pesanan=<?= $row['id_pesanan']; ?>" class="btn btn-outline-primary btn-circle">
+                          <i class="fa fa-print"></i>  
+                        </a>
+                      <?php }?>
                     </td>
                   </tr>
                   <?php
