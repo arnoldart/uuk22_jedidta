@@ -124,7 +124,7 @@ require '../config/conn.php';
                         <!-- <form method="POST" action="../utils/tambah_kamar.php" enctype="multipart/form-data"> -->
                           <div class="modal-body">
                             <div class="form-group">
-                              <label>ID Tamu</label>
+                              <label>Nama Tamu</label>
                               <select name="id_tamu" class="form-control">
                                 <?php
                                   $nama = $_SESSION['username'];
@@ -135,7 +135,7 @@ require '../config/conn.php';
                               </select>
                             </div>
                             <div class="form-group">
-                              <label>ID Kamar</label>
+                              <label>Tipe Kamar</label>
                               <select name="id_kamar" class="form-control">
                                 <option value="">---Pilih Tipe---</option>
                                 <?php
@@ -144,6 +144,10 @@ require '../config/conn.php';
                                     <option value="<?= $row['id_kamar']; ?>"><?= $row['tipe']; ?></option>
                                 <?php }?>
                               </select>
+                            </div>
+                            <div class="form-group">
+                              <label>Jumlah Orang</label>
+                              <input type="text" name="jumlah_orang" class="form-control">
                             </div>
                           </div>
                           <div class="modal-footer justify-content-between">

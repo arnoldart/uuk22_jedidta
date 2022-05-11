@@ -59,7 +59,7 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="">
-                      <div class="card card-outline card-primary">
+                      <div class="mt-4 pr-3">
                         <div class="card-header text-center">
                           <a href="#" class="h1"><b>Login Tamu</b></a>
                         </div>

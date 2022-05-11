@@ -3,7 +3,7 @@
   require "../config/conn.php";
 
   session_start();
-  if(!isset($_SESSION['user'])){
+  if(!isset($_SESSION['username'])){
     header("location:../index.php");
   }
 

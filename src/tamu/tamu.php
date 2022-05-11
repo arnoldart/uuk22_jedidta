@@ -42,10 +42,13 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
+                    <th>No.</th>
+                    <th>Tanggal Cek In</th>
+                    <th>Tanggal Cek Out</th>
+                    <th>Nama Tamu</th>
                     <th>Tipe Kamar</th>
-                    <th>Jumlah</th>
-                    <th>Tgl Cek In</th>
-                    <th>Tgl Cek Out</th>
+                    <th>Jumlah Kamar</th>
+                    <th>Jumlah Orang</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -56,7 +59,7 @@
                     $nama = $_SESSION['username'];
                     $query="SELECT * FROM transaksi
                             INNER JOIN tb_kamar ON transaksi.id_kamar = tb_kamar.id_kamar
-                            INNER JOIN tb_tamu ON transaksi.id_tamu = tb_tamu.id WHERE tb_tamu.username = 'user'";
+                            INNER JOIN tb_tamu ON transaksi.id_tamu = tb_tamu.id WHERE tb_tamu.username = '$nama' ORDER BY transaksi.id_pesanan DESC";
                     $result = mysqli_query($conn, $query);
                     
                     if(!$result) {
@@ -66,10 +69,13 @@
                     while($row = mysqli_fetch_assoc($result)) {
                   ?>
                   <tr>
-                    <td><?= $row['tipe']; ?></td>
-                    <td><?= $row['jumlah']; ?></td>
+                    <td><?= $no; ?></td>
                     <td><?= $row['tgl_check_in']; ?></td>
                     <td><?= $row['tgl_check_out']; ?></td>
+                    <td><?= $row['nama_tamu']; ?></td>
+                    <td><?= $row['tipe']; ?></td>
+                    <td><?= $row['jumlah_kamar']; ?></td>
+                    <td><?= $row['jumlah_orang']; ?></td>
                     <td>
                       <a href="cetak_pesanan.php?id_pesanan=<?= $row['id']; ?>" class="btn btn-outline-primary btn-circle">
                         <i class="fa fa-print"></i>  
@@ -77,6 +83,7 @@
                     </td>
                   </tr>
                   <?php
+                  $no++;
                     }
                   ?>
                 </tbody>

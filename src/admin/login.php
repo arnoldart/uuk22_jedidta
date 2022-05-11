@@ -52,42 +52,40 @@
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="">
-                      <div class="card card-outline card-primary">
-                        <div class="card-header text-center">
-                          <a href="../../index2.html" class="h1"><b>Login Admin</b></a>
-                        </div>
-                        <div class="card-body">
-                          <form action="../utils/cek_login_admin.php" method="post">
-                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" name="username" placeholder="Username">
-                              <div class="input-group-append">
-                                <div class="input-group-text">
-                                  <span class="fas fa-user"></span>
-                                </div>
+                    <div class="mt-4 pr-3">
+                      <div class="card-header text-center">
+                        <a href="../../index2.html" class="h1"><b>Login Admin</b></a>
+                      </div>
+                      <div class="card-body">
+                        <form action="../utils/cek_login_admin.php" method="post">
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="username" placeholder="Username">
+                            <div class="input-group-append">
+                              <div class="input-group-text">
+                                <span class="fas fa-user"></span>
                               </div>
                             </div>
-                            <div class="input-group mb-3">
-                              <input type="password" class="form-control" name="password" placeholder="Password">
-                              <div class="input-group-append">
-                                <div class="input-group-text">
-                                  <span class="fas fa-lock"></span>
-                                </div>
+                          </div>
+                          <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <div class="input-group-append">
+                              <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="col-8">
-                              </div>
-                              <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Login</button>
-                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-8">
                             </div>
-                          </form>
-                          <br>
-                          <p class="mb-1">
-                            <a href="../index.php">Login sebagai Tamu</a>
-                          </p>
-                        </div>
+                            <div class="col-4">
+                              <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                          </div>
+                        </form>
+                        <br>
+                        <p class="mb-1">
+                          <a href="../index.php">Login sebagai Tamu</a>
+                        </p>
                       </div>
                     </div>
                   </div>

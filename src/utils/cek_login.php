@@ -11,6 +11,7 @@ if($row > 0){
   $data = mysqli_fetch_array($sql);
   session_start();
   $_SESSION['username'] = $user;
+  $_SESSION['level'] = 'tamu';
   $_SESSION['id'] = $data['id'];
   header("location:../tamu/index.php");
 }else{
@@ -20,6 +21,6 @@ if($row > 0){
     window.location.href = "../index.php"; 
   </script>
   <?php
-  }
+}
 
 ?>

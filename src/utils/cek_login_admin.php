@@ -10,7 +10,7 @@ if($cek > 0) {
   if ($data['level']=="admin") {
     session_start();
     $_SESSION['id_pengguna']=$data['id_pengguna'];
-    $_SESSION['user']=$user;
+    $_SESSION['username']=$user;
     $_SESSION['nama']=$data['nama_pengguna'];
     $_SESSION['level']=$data['level'];
     header("location: ../admin/index.php");
@@ -18,7 +18,7 @@ if($cek > 0) {
   }
   else if ($data['level']=="resepsionis") {
     session_start();
-    $_SESSION['user']=$user;
+    $_SESSION['username']=$user;
     $_SESSION['nama']=$data['nama_pengguna'];
     $_SESSION['level']=$data['level'];
 

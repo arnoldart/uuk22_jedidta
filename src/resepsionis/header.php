@@ -1,12 +1,24 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['user'])){
-  header("location:../index.php");
+if(isset($_SESSION['username'])){
+  if($_SESSION['level'] === "admin") {
+    echo "<script>
+      window.location.href = '../admin/';
+    </script>";
+  }else if($_SESSION['level'] === "tamu") {
+    echo "<script>
+      window.location.href = '../tamu/';
+    </script>";
+  }
+}else{
+  echo "<script>
+    alert('Silahkan login terlebih dahulu');
+    window.location.href = '../index.php';
+  </script>";
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +53,10 @@ if(!isset($_SESSION['user'])){
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="index.php" class="nav-link">Pesanan</a>
+          <a href="index.php" class="nav-link">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a href="pesanan.php" class="nav-link">Pesanan</a>
         </li>
         <li class="nav-item">
           <a href="../index.php" class="nav-link">Logout</a>

@@ -64,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <div class="col-lg-6">
                     <div class="">
-                      <div class="card card-outline card-primary">
+                      <div class="pr-3">
                         <div class="card-header text-center">
                           <a href="../../index2.html" class="h1"><b>Pendaftaran Tamu Hotel</b></a>
                         </div>
