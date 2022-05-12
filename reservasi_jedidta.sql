@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2022 at 05:26 AM
+-- Generation Time: May 12, 2022 at 05:43 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -59,7 +59,8 @@ CREATE TABLE `tb_fasilitas_umum` (
 INSERT INTO `tb_fasilitas_umum` (`id`, `nama_fasilitas`, `gambar`) VALUES
 (9, 'Kolam Renang', '639-swimming-pool.jpg'),
 (10, 'Ruangan GYM', '313-gym-room.jpg'),
-(11, 'Lapangan Golf', '951-golf.jpg');
+(11, 'Lapangan Golf', '951-golf.jpg'),
+(12, 'Ruangan Meeting', '284-pawel-chu-ULh0i2txBCY-unsplash.jpg');
 
 -- --------------------------------------------------------
 
@@ -212,7 +213,7 @@ ALTER TABLE `kamar`
 -- AUTO_INCREMENT for table `tb_fasilitas_umum`
 --
 ALTER TABLE `tb_fasilitas_umum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_kamar`
@@ -224,13 +225,13 @@ ALTER TABLE `tb_kamar`
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_tamu`
 --
 ALTER TABLE `tb_tamu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
