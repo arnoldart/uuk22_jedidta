@@ -3,7 +3,7 @@
 $host = 'localhost';
 $user = "root";
 $pass = "";
-$db = "db_ukk_2022";
+$db = "reservasi_jedidta";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 

@@ -39,7 +39,7 @@ if($foto !== "") {
   if(!$result) {
     die("Queery gagal dijalankan: ".mysqli_errno($conn)."-".mysqli_error($conn));
   }else {
-    echo "<script>alert('Data berhasil ditambahkan.');window.location='../kamar.php';</script>";
+    echo "<script>alert('Data berhasil ditambahkan.');window.location='../admin/kamar.php';</script>";
   }
 }
 

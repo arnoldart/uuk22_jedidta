@@ -3,12 +3,12 @@
 require '../config/conn.php';
 
 ?>
-<div class="wrapper">
 
-  <?php require './header.php'?>
-  <!-- Content Wrapper. Contains page content -->
+<?php require './header.php'?>
+
+
+
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container">
         <div class="row mb-2">
@@ -18,7 +18,6 @@ require '../config/conn.php';
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
 
   <div class="content">
     <div class="container">
@@ -120,13 +119,12 @@ require '../config/conn.php';
                 <?php $no++;}?>
               </tbody>
             </table>
+            
           </div>
         </div>
       </div>
-  
     </div>
   </div>
-</div>
 
 <!-- jQuery -->
 <script src="../assets/plugins/jquery/jquery.min.js"></script>
@@ -157,22 +155,14 @@ require '../config/conn.php';
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
+      "searching": true,
       "paging": true,
       "lengthChange": true,
-      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
       "responsive": true,
     });
-
-   //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
 
   });
 </script>
