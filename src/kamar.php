@@ -45,8 +45,7 @@ include './config/conn.php'
                           <td colspan="2"><?= $row['keterangan'];?></td>
                         </tr>
                         <tr>
-                          <td>Harga : </td>
-                          <td><?= $row['harga'];?></td>
+                          <td><p class="h3"><b>Rp<?= $row['harga'];?></b></p></td>
                         </tr>
                       </table>
                     </div>
