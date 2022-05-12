@@ -47,6 +47,7 @@ include './config/conn.php'
                         <tr>
                           <td><p class="h3"><b>Rp<?= $row['harga'];?></b></p></td>
                         </tr>
+                        
                       </table>
                     </div>
                   </div>
